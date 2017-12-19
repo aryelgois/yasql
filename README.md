@@ -49,8 +49,11 @@ A sequence of strings defining Multiple-Column Indexes. The format is:
 
 `KEYWORD table column1 column2 ...`
 
-With this, it's possible to define a composite of PRIMARY KEY or UNIQUE indexes,
-for example.
+With this, it's possible to define a composite of PRIMARY KEY or UNIQUE KEY
+indexes, with a specific column order. The word `KEY` is optional.
+
+> It is allowed to add multiple PRIMARY KEY in the table columns, but it might
+> result in a composite of unknown order, depending on the implementation.
 
 
 ## definitions
