@@ -21,7 +21,7 @@ Contains a map of data about the database. The only required key is `name`.
 Possible keys:
 
 - name: the database name
-- charset: the database character set (default: `UTF8`)
+- charset: the database character set (default: `utf8`)
 - collate: the database collation (default: `utf8_general_ci`)
 - source: the SQL implementation to adhere (default: `MySQL`)
 
@@ -39,7 +39,8 @@ Some notes:
 - All numeric columns are implicitly UNSIGNED. To define a signed column, add a
   `+` before or after the column type: `cash: +int` or `rating: tinyint(1)+`
 
-- A shortener for the `FOREIGN KEY` keyword is `->`
+- A shortener for the `FOREIGN KEY` keyword is `-> table.column`, optionally
+  quoting the names
 
 
 ## composite
