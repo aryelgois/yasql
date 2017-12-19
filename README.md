@@ -63,4 +63,58 @@ the corresponding value. Definitions can extend other definitions.
 > With great recursion power comes great responsibility.
 
 
+# Example
+
+A simple e-Commerce database:
+
+```yaml
+database:
+  name: example
+
+definitions:
+  boolean: tinyint(1)
+  desc: varchar(500) NULLABLE
+  document: varchar(14) UNIQUE
+  money: decimal(17,4)
+  pk: int PRIMARY KEY
+  pk_auto: pk AUTO_INCREMENT
+  sha1: binary(20)
+  string: varchar(60)
+
+tables:
+  people:
+    id: pk_auto
+    name: string
+    document: document
+
+  users:
+    id: pk -> people.id
+    email: varchar(30)
+    password: sha1
+
+  products:
+    id: pk_auto
+    name: string
+    description: desc
+    cost: money
+    rating: +tinyint(1)
+
+  cart:
+    id: pk_auto
+    person: int -> people.id
+    paid: boolean
+    stamp: timestamp
+
+  cart_items:
+    cart: int -> cart.id
+    product: int -> products.id
+    amount: int
+
+composite:
+- PRIMARY KEY cart_items cart product
+```
+
+The key order is just for a better reading.
+
+
 [YAML]: http://yaml.org/
