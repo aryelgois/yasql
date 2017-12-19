@@ -8,7 +8,7 @@ friendly format.
 
 # Specification
 
-A YASQL file is a ordinary `.yaml` with a single document containing the
+A YASQL file is a ordinary `.yml` with a single document containing the
 following keys:
 
 > Other keys are implementation defined
@@ -44,7 +44,7 @@ Some notes:
 
 ## composite
 
-A list of strings defining Multiple-Column Indexes. The format is:
+A sequence of strings defining Multiple-Column Indexes. The format is:
 
 `KEYWORD table column1 column2 ...`
 
@@ -99,14 +99,14 @@ tables:
     cost: money
     rating: +tinyint(1)
 
-  cart:
+  carts:
     id: pk_auto
     person: int -> people.id
     paid: boolean
     stamp: timestamp
 
   cart_items:
-    cart: int -> cart.id
+    cart: int -> carts.id
     product: int -> products.id
     amount: int
 
