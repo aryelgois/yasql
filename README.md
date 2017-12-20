@@ -22,10 +22,23 @@ Contains a map of data about the database. The only required key is `name`.
 
 Possible keys:
 
+###### related to the database
+
 - name: the database name
 - charset: the database character set (default: `utf8`)
 - collate: the database collation (default: `utf8_general_ci`)
 - source: the SQL implementation to adhere (default: `MySQL`)
+
+###### related to management
+
+- project: the project name
+- description: a short description of the database
+- version: the version of the database. I recommend to follow a [Semantic
+  Versioning]
+- license: the license of the database. For multiple licenses, just separate
+  with comma, in a single string
+- authors: sequence of author names, may have the email or other informations as
+  well
 
 
 ## tables
@@ -76,6 +89,12 @@ A simple e-Commerce database:
 ```yaml
 database:
   name: example
+  project: aryelgois/yasql
+  description: A YASQL database example
+  version: 1.0.0-alpha
+  license: MIT
+  authors:
+  - Aryel
 
 definitions:
   boolean: tinyint(1)
@@ -129,3 +148,4 @@ The key order is just for a better reading.
 
 
 [YAML]: http://yaml.org/
+[Semantic Versioning]: https://semver.org/
