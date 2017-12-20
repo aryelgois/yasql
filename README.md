@@ -11,7 +11,9 @@ friendly format.
 A YASQL file is a ordinary `.yml` with a single document containing the
 following keys:
 
-> Other keys are implementation defined
+> **NOTE**
+> - The only required keys are `database` and `tables`
+> - Other keys are implementation defined
 
 
 ## database
