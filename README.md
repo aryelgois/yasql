@@ -91,7 +91,7 @@ database:
   name: example
   project: aryelgois/yasql
   description: A YASQL database example
-  version: 1.0.0-alpha
+  version: 1.0.0
   license: MIT
   authors:
   - Aryel
