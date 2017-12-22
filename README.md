@@ -146,6 +146,9 @@ The key order is just for a better reading.
 
 PHP 7:
 - [aryelgois/yasql-php]
+  - Exports to MySQL
+  - Builds many databases at same time
+  - Composer library
 
 
 # Contributing
