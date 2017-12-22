@@ -142,10 +142,26 @@ composite:
 The key order is just for a better reading.
 
 
+# Implementations
+
+PHP 7:
+- [aryelgois/yasql-php]
+
+
+# Contributing
+
+You can help [making this specification better][pullrequest], improving existing
+implementations or creating new ones in different languages.
+
+
 # TODO
 
-- [ ] Add implementations
+- [ ] Add more implementations
+- [ ] Add a GUI for database designing which exports to YASQL
 
 
 [YAML]: http://yaml.org/
 [Semantic Versioning]: https://semver.org/
+[pullrequest]: https://github.com/aryelgois/yasql/pulls
+
+[aryelgois/yasql-php]: https://github.com/aryelgois/yasql-php
