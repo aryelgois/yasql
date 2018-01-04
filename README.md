@@ -91,10 +91,10 @@ database:
   name: example
   project: aryelgois/yasql
   description: A YASQL database example
-  version: 1.0.0
+  version: 1.0.1
   license: MIT
   authors:
-  - Aryel
+    - Aryel
 
 definitions:
   boolean: tinyint(1)
@@ -136,7 +136,7 @@ tables:
     amount: int
 
 composite:
-- PRIMARY KEY cart_items cart product
+  - PRIMARY KEY cart_items cart product
 ```
 
 The key order is just for a better reading.
