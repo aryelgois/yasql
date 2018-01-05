@@ -43,8 +43,8 @@ Possible keys:
 
 ## tables
 
-A map of tables and their columns. Each column specifies its type and some other
-settings (e.g. PRIMARY KEY or AUTO_INCREMENT) in a plain string.
+A map of tables and their columns. Each column specifies its type and some
+keywords (e.g. PRIMARY KEY or AUTO_INCREMENT) in a plain string.
 
 Some notes:
 
@@ -54,8 +54,8 @@ Some notes:
 - All numeric columns are implicitly UNSIGNED. To define a signed column, add a
   `+` before or after the column type: `cash: +int` or `rating: tinyint(1)+`
 
-- A shortener for the `FOREIGN KEY` keyword is `-> table.column`, optionally
-  quoting the names
+- A shortener for the `REFERENCES` keyword is `-> table.column`. It creates
+  Foreign Keys
 
 
 ## composite
@@ -203,6 +203,7 @@ implementations or creating new ones in different languages.
 [YAML]: http://yaml.org/
 [reserved indicators]: http://yaml.org/spec/1.2/spec.html#id2772075
 [Semantic Versioning]: https://semver.org/
+
 [pullrequest]: https://github.com/aryelgois/yasql/pulls
 
 [aryelgois/yasql-php]: https://github.com/aryelgois/yasql-php
