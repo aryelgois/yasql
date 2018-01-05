@@ -151,6 +151,43 @@ PHP 7:
   - Composer library
 
 
+# Notes
+
+#### Quoted identifiers
+
+Identifiers (table and column names) may be _SQL quoted_, accordingly to the
+source in `database` (default is `MySQL`, with backticks as quotes). But due to
+how YAML handles key quotation, they must not be SQL quoted, but may be quoted
+if its required for a valid YAML key (therefore, references to this key, e.g.
+in a `->` or in the `composite` sequence, should be SQL quoted).
+
+Example:
+
+```yaml
+database:
+  name: Uncommon-db
+
+tables:
+  multi word table:
+    column`with`quotes: int PRIMARY
+
+  ":D":
+    kill me: int -> `multi word table`.`column``with``quotes`
+    please: int
+
+composite:
+  - PRIMARY `:D` `kill me` please
+```
+
+> Note that “Reserved indicators can't start a plain scalar.”
+>
+> [YAML 1.2 spec: Indicator Characters (Example 5.10)][reserved indicators]
+>
+> So it is not required to SQL quote the Database name.  
+> There isn't any other place in the YASQL spec that this error would occur,
+> though.
+
+
 # Contributing
 
 You can help [making this specification better][pullrequest], improving existing
@@ -164,6 +201,7 @@ implementations or creating new ones in different languages.
 
 
 [YAML]: http://yaml.org/
+[reserved indicators]: http://yaml.org/spec/1.2/spec.html#id2772075
 [Semantic Versioning]: https://semver.org/
 [pullrequest]: https://github.com/aryelgois/yasql/pulls
 
