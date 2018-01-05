@@ -43,8 +43,8 @@ Possible keys:
 
 ## tables
 
-A map of tables and their columns. Each column specifies its type and some other
-settings (e.g. PRIMARY KEY or AUTO_INCREMENT) in a plain string.
+A map of tables and their columns. Each column specifies its type and some
+keywords (e.g. PRIMARY KEY or AUTO_INCREMENT) in a plain string.
 
 Some notes:
 
@@ -54,8 +54,8 @@ Some notes:
 - All numeric columns are implicitly UNSIGNED. To define a signed column, add a
   `+` before or after the column type: `cash: +int` or `rating: tinyint(1)+`
 
-- A shortener for the `FOREIGN KEY` keyword is `-> table.column`, optionally
-  quoting the names
+- A shortener for the `REFERENCES` keyword is `-> table.column`. It creates
+  Foreign Keys
 
 
 ## composite
@@ -64,8 +64,9 @@ A sequence of strings defining Multiple-Column Indexes. The format is:
 
 `KEYWORD table column1 column2 ...`
 
-With this, it's possible to define a composite of PRIMARY KEY or UNIQUE KEY
-indexes, with a specific column order. The word `KEY` is optional.
+With this, it's possible to define a composite of PRIMARY, UNIQUE or INDEX KEY
+indexes, with a specific column order. The word `KEY` is optional, but the
+former keyword is required.
 
 > It is allowed to add multiple PRIMARY KEY in the table columns, but it might
 > result in a composite of unknown order, depending on the implementation.
@@ -91,10 +92,10 @@ database:
   name: example
   project: aryelgois/yasql
   description: A YASQL database example
-  version: 1.0.0
+  version: 1.0.1
   license: MIT
   authors:
-  - Aryel
+    - Aryel
 
 definitions:
   boolean: tinyint(1)
@@ -136,7 +137,7 @@ tables:
     amount: int
 
 composite:
-- PRIMARY KEY cart_items cart product
+  - PRIMARY KEY cart_items cart product
 ```
 
 The key order is just for a better reading.
@@ -149,6 +150,44 @@ PHP 7:
   - Exports to MySQL
   - Builds many databases at same time
   - Composer library
+
+
+# Notes
+
+#### Quoted identifiers
+
+Identifiers (table and column names) may be _SQL quoted_, accordingly to the
+source in `database` (default is `MySQL`, with backticks as quotes). But due to
+how YAML handles key quotation, they must not be SQL quoted, but may be quoted
+if its required for a valid YAML key (therefore, references to this key, e.g.
+in a `->` or in the `composite` sequence, should be SQL quoted).
+
+Example:
+
+```yaml
+database:
+  name: Uncommon-db
+  license: MIT
+
+tables:
+  multi word table:
+    column`with`quotes: int PRIMARY
+
+  ":D":
+    kill me: int -> `multi word table`.`column``with``quotes`
+    please: int
+
+composite:
+  - PRIMARY `:D` `kill me` please
+```
+
+> Note that “Reserved indicators can't start a plain scalar.”
+>
+> [YAML 1.2 spec: Indicator Characters (Example 5.10)][reserved indicators]
+>
+> So it is not required to SQL quote the Database name.  
+> There isn't any other place in the YASQL spec that this error would occur,
+> though.
 
 
 # Contributing
@@ -164,7 +203,9 @@ implementations or creating new ones in different languages.
 
 
 [YAML]: http://yaml.org/
+[reserved indicators]: http://yaml.org/spec/1.2/spec.html#id2772075
 [Semantic Versioning]: https://semver.org/
+
 [pullrequest]: https://github.com/aryelgois/yasql/pulls
 
 [aryelgois/yasql-php]: https://github.com/aryelgois/yasql-php
