@@ -167,6 +167,7 @@ Example:
 ```yaml
 database:
   name: Uncommon-db
+  license: MIT
 
 tables:
   multi word table:
