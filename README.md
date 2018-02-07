@@ -70,6 +70,7 @@ former keyword is required.
 
 > It is allowed to add multiple PRIMARY KEY in the table columns, but it might
 > result in a composite of unknown order, depending on the implementation.
+> Using the `composite` key allows a defined and explicit column order.
 
 
 ## definitions
