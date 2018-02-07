@@ -46,7 +46,7 @@ Possible keys:
 A map of tables and their columns. Each column specifies its type and some
 keywords (e.g. PRIMARY KEY or AUTO_INCREMENT) in a plain string.
 
-Some notes:
+The content in each column is actually SQL, with some differences:
 
 - All columns are implicitly NOT NULL. To define a nullable column, add a `NULL`
   or `NULLABLE` keyword.
