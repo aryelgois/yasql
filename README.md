@@ -35,8 +35,8 @@ Possible keys:
 - description: a short description of the database
 - version: the version of the database. I recommend to follow a [Semantic
   Versioning]
-- license: the license of the database. For multiple licenses, just separate
-  with comma, in a single string
+- license: the license of the database. Separate multiple licenses with comma,
+  in a single string
 - authors: sequence of author names, may have the email or other informations as
   well
 
