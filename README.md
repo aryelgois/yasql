@@ -13,6 +13,7 @@ Index:
 - [Notes]
   - [Quoted identifiers]
 - [Contributing]
+- [Changelog]
 - [TODO]
 
 
@@ -215,6 +216,9 @@ You can help [making this specification better][pullrequest], improving existing
 implementations or creating new ones in different languages.
 
 
+# [Changelog]
+
+
 # TODO
 
 - [ ] Add more implementations
@@ -233,6 +237,8 @@ implementations or creating new ones in different languages.
 [Quoted identifiers]: #quoted-identifiers
 [Contributing]: #contributing
 [TODO]: #todo
+
+[changelog]: CHANGELOG.md
 
 [YAML]: http://yaml.org/
 [reserved indicators]: http://yaml.org/spec/1.2/spec.html#id2772075
