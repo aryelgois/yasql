@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Changelog file
 - Information in `composite` note
 - README Index
+- Repository title
 
 ### Changed
 - `tables` note about columns content
