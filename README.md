@@ -1,3 +1,19 @@
+Index:
+
+- [Intro]
+- [Specification]
+  - [database]
+  - [tables]
+  - [composite]
+  - [definitions]
+- [Example]
+- [Implementations]
+- [Notes]
+  - [Quoted identifiers]
+- [Contributing]
+- [TODO]
+
+
 # Intro
 
 **YAML Ain't SQL** is a [YAML] specification to define SQL database schemas.
@@ -202,6 +218,19 @@ implementations or creating new ones in different languages.
 - [ ] Add more implementations
 - [ ] Add a GUI for database designing which exports to YASQL
 
+
+[Intro]: #intro
+[Specification]: #specification
+[database]: #database
+[tables]: #tables
+[composite]: #composite
+[definitions]: #definitions
+[Example]: #example
+[Implementations]: #implementations
+[Notes]: #notes
+[Quoted identifiers]: #quoted-identifiers
+[Contributing]: #contributing
+[TODO]: #todo
 
 [YAML]: http://yaml.org/
 [reserved indicators]: http://yaml.org/spec/1.2/spec.html#id2772075
